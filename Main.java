@@ -146,7 +146,27 @@ public class Main implements MouseListener, MouseMotionListener, KeyListener {
 			/***************************/
 			/* Draw all objects here */
 			/***************************/
-
+			
+			
+			//This Creates Stars 
+			/*int control;
+			int k;
+			int j;
+				
+			for(k = 0;k <500;k++){
+			}
+			for(j = 0;j <500;j++){
+			}	
+			for(control = 0;control < control;k++){
+				g.drawString("*"(),j,k);
+				}
+			Random random = new Random();
+			int x = random.nextInt(winWidth*2);
+			int y = random.nextInt(winHeight*2);
+			g.drawImage(Image,x,y,4,4,this);
+			*/
+			
+			
 			//draw where the mouse is moved
 			//g2.setColor(Color.YELLOW);
 			//g2.fillOval(mx-4, my-4, 8, 8);
@@ -162,6 +182,12 @@ public class Main implements MouseListener, MouseMotionListener, KeyListener {
 			for(Enemy en : hoardList) {
 				g2.setColor(en.clr);
 				g2.fillRect(en.x, en.y, en.width, en.height);
+				if (en.y >= ship.y) {
+					window.dispose();
+					loser();
+					System.out.print("! ");
+					return;
+				}
 			}
 
 			//draw Shoot
@@ -236,7 +262,7 @@ public class Main implements MouseListener, MouseMotionListener, KeyListener {
 			}
 		}
 
-		if (key == 32) {    //spacebar
+		if (key == 88 || key == 90) {    //x & z button
 			if (!enableFire) return; 
 			enableFire = false; //disable firing
 			//add another bullet to the screen.
@@ -244,15 +270,7 @@ public class Main implements MouseListener, MouseMotionListener, KeyListener {
 			Shoot bullet = new Shoot(ship.x + 24, ship.y - 12, 2, 12);
 			bulletList.add(bullet);
 
-			/*try {
-				AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(new File("S:\\Astro\\src\\pew.au").getAbsoluteFile());
-				Clip clip = AudioSystem.getClip();
-				clip.open(audioInputStream);
-				clip.start();
-			} catch(Exception ex) {
-				System.out.println("Error with playing sound.");
-				ex.printStackTrace();
-			}*/			
+			
 		}
 
 		/*
@@ -288,7 +306,7 @@ public class Main implements MouseListener, MouseMotionListener, KeyListener {
 		//else key=0;
 		//mainPanel.repaint();
 		int key = e.getKeyCode();
-		if (key == 32) enableFire = true; 
+		if (key == 88 || key == 90) enableFire = true; 
 	}
 
 	public void mouseReleased(MouseEvent e) {
@@ -325,7 +343,7 @@ public class Main implements MouseListener, MouseMotionListener, KeyListener {
 	 * ******************************
 	 */
 	void moveEnemies() throws IOException {
-		//move all of the enemies
+		//move allxxof the enemies
 		for(Enemy en : hoardList) {
 			en.x += en.xSpeed;
 			if ((en.x + en.width) > winWidth ) {    //TODO use a variable for screenwidth
@@ -336,6 +354,7 @@ public class Main implements MouseListener, MouseMotionListener, KeyListener {
 				en.y += 25; //move it down
 				en.xSpeed = -en.xSpeed;
 			}
+			
 		}
 	} //end of moveStuff
 	
@@ -351,6 +370,22 @@ public class Main implements MouseListener, MouseMotionListener, KeyListener {
 					new Main();
 				}
 				if (win == 1) System.exit(0);
+		
+	}
+	
+	public void loser() {
+
+		Object[] options = { "PLAY AGAIN", "EXIT" };
+		int loss = JOptionPane.showOptionDialog(null, "VAC banned", "You suck!",
+				JOptionPane.DEFAULT_OPTION, JOptionPane.WARNING_MESSAGE,
+				null, options, options[0]);
+				
+				if (loss == 0) {
+					window.dispose();
+					new Main();
+				}
+				if (loss == 1) System.exit(0);
+				
 		
 	}
 
