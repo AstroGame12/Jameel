@@ -6,11 +6,10 @@ import java.awt.*;
 
 public class Enemy extends Rectangle {
 
-    //instance variables (each object has these)
-    Color clr = Color.ORANGE;
-    int xSpeed = 10;
+	//instance variables (each object has these)
+    Color clr = Color.ORANGE;    
     int health = 2;
-
+    int xSpeed = 10;
 
     public Enemy(int i, int i1, int i2, int i3) {
         super(i, i1, i2, i3);
@@ -20,4 +19,3 @@ public class Enemy extends Rectangle {
 
     }
 }
-
