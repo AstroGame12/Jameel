@@ -6,6 +6,14 @@ import java.awt.*;
 
 public class Ship extends Rectangle {
 
+	private final Color shipColor;
+	
+	public Ship(Color shipColor) {
+		this.shipColor = shipColor;
+		this.width = 50;
+		this.height = 10; 
+	}
+	
     //static function to load the ship icon
     // or do it in the constructor
 
