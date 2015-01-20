@@ -19,7 +19,7 @@ public class Ship extends Rectangle {
 
     public void paintIcon(Graphics2D g2, int x, int y, int width, int height) {
         //TODO write paint code
-        g2.setColor(Color.GREEN);
+        g2.setColor(this.shipColor);
         g2.fillRect(x, y, width, height);
     }
 }
