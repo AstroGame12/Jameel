@@ -13,13 +13,9 @@ public class Ship extends Rectangle {
 		this.width = 50;
 		this.height = 10; 
 	}
-	
-    //static function to load the ship icon
-    // or do it in the constructor
 
-    public void paintIcon(Graphics2D g2, int x, int y, int width, int height) {
-        //TODO write paint code
+    public void paintIcon(Graphics2D g2) {
         g2.setColor(this.shipColor);
-        g2.fillRect(x, y, width, height);
+        g2.fillRect(this.x, this.y, this.width, this.height);
     }
 }
