@@ -175,7 +175,7 @@ public class Main {
 			g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
 
 			//draw Ship
-			ship1.paintIcon(g2, ship1.x, ship1.y, ship1.width, ship1.height);
+			ship1.paintIcon(g2);
 
 			//draw enemy
 			for(Enemy en : hoardList) {
