@@ -46,7 +46,7 @@ public class Main {
 		winHeight = ((int) tk.getScreenSize().getHeight());
 		
 		// Get the number of players that are playing
-		numberOfPlayers = getNumberOfPlayers();
+		numberOfPlayers = 1; //getNumberOfPlayers();
 		
 		// Set the position of our first ship
 		ship1.y = (int) (winHeight * 0.8);
